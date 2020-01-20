@@ -1,16 +1,22 @@
-# wardrobe
+# Wardrobe
 
-A new Flutter project.
+A digital wardrobe theme built in flutter for iOS and android
 
-## Getting Started
+# 
+<p float="left">
+  
+  <img src="images/2.png" width="100" /> 
+  <img src="images/1.png" width="100" />
+  <img src="images/5.png" width="100" />
+  <img src="images/4.png" width="100" />
+</p>
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+# Steps to run
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### 1. Clone `git@github.com:MuhammadSaadQadeer/Wardrobe.git` and `cd` in `Wardrobe` folder
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 2. Run command `open -a Simulator` to open the simulator for iOS
+
+### 3. Run command `flutter run` to run the application on iOS simulator
+
