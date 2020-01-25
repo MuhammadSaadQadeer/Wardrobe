@@ -15,7 +15,7 @@ class Landing extends StatelessWidget {
           SizedBox(
             width: 300, // specific value
             child: CustomIconButton(
-                imagePath: 'assets/facebooklogo.jpg',
+                imagePath: 'assets/facebooklogo.png',
                 btnText: "Sign In With Facebook",
                 bgColor: Colors.white),
           ),
@@ -25,7 +25,7 @@ class Landing extends StatelessWidget {
           SizedBox(
             width: 300, // specific value
             child: CustomIconButton(
-                imagePath: 'assets/googlelogo.jpg',
+                imagePath: 'assets/googlelogo.png',
                 btnText: "Sign In With Google",
                 bgColor: Colors.white),
           ),
