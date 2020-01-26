@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wardrobe/screens/landing.dart';
+import 'package:wardrobe/screens/signup.dart';
 import './screens/splash.dart';
 
 void main() => runApp(MyApp());
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Landing(),
+      home: SignUp(),
     );
   }
 }
