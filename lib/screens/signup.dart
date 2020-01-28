@@ -83,19 +83,23 @@ class _RegisterFormState extends State<RegisterForm> {
               ),
               const SizedBox(height: 16.0),
               TextFormField(
-                obscureText: true,
-                decoration: const InputDecoration(
-                  border: const OutlineInputBorder(
+                obscureText: _obscureText,
+                decoration:  InputDecoration(
+                  border:  OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.teal)),
                   labelText: 'Password',
-                  suffixIcon:  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _obscureText = !_obscureText;
-                      });
-                    },
-                    child: Icon(
-                        _obscureText ? Icons.visibility : Icons.visibility_off),
+                  suffixIcon: Padding(
+                    padding: const EdgeInsetsDirectional.only(end: 12.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      },
+                      child: Icon(_obscureText
+                          ? Icons.visibility_off
+                          : Icons.visibility),
+                    ), // myIcon is a 48px-wide widget.
                   ),
                 ),
                 validator: (String value) {
