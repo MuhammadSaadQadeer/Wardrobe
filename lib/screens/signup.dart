@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wardrobe/components/customtext.dart';
 import 'package:wardrobe/components/gradientbutton.dart';
 
 class SignUp extends StatelessWidget {
@@ -20,6 +21,14 @@ class RegisterForm extends StatefulWidget {
 class _RegisterFormState extends State<RegisterForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool _agreedToTOS = true;
+  bool _obscureText = true;
+
+  // Toggles the password show status
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +40,7 @@ class _RegisterFormState extends State<RegisterForm> {
             //  crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               const SizedBox(height: 100.0),
+              CustomText(btnText: "Sign up", txtSize: 30, isBold: true),
               TextFormField(
                 decoration: const InputDecoration(
                   border: const OutlineInputBorder(
@@ -73,11 +83,24 @@ class _RegisterFormState extends State<RegisterForm> {
               ),
               const SizedBox(height: 16.0),
               TextFormField(
-                obscureText: true,
-                decoration: const InputDecoration(
-                  border: const OutlineInputBorder(
+                obscureText: _obscureText,
+                decoration:  InputDecoration(
+                  border:  OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.teal)),
                   labelText: 'Password',
+                  suffixIcon: Padding(
+                    padding: const EdgeInsetsDirectional.only(end: 12.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      },
+                      child: Icon(_obscureText
+                          ? Icons.visibility_off
+                          : Icons.visibility),
+                    ), // myIcon is a 48px-wide widget.
+                  ),
                 ),
                 validator: (String value) {
                   if (value.trim().isEmpty) {
@@ -85,6 +108,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   }
                 },
               ),
+
               const SizedBox(height: 16.0),
               TextFormField(
                 obscureText: true,
