@@ -9,6 +9,9 @@ class MoreInfo extends StatefulWidget {
 class _MoreInfoState extends State<MoreInfo> {
   bool _isMale = true;
   bool _isFemale = false;
+  bool _isEcto = true;
+  bool _isEndo = false;
+  bool _isMeso = false;
 
   _toggleGenderMale() {
     setState(() {
@@ -21,6 +24,30 @@ class _MoreInfoState extends State<MoreInfo> {
     setState(() {
       _isFemale = true;
       _isMale = false;
+    });
+  }
+
+  _toggleEcto() {
+    setState(() {
+      _isEcto = true;
+      _isEndo = false;
+      _isMeso = false;
+    });
+  }
+
+  _toggleEndo() {
+    setState(() {
+      _isEcto = false;
+      _isEndo = true;
+      _isMeso = false;
+    });
+  }
+
+  _toggleMeso() {
+    setState(() {
+      _isEcto = false;
+      _isEndo = false;
+      _isMeso = true;
     });
   }
 
@@ -77,74 +104,22 @@ class _MoreInfoState extends State<MoreInfo> {
                           style: TextStyle(
                               decoration: TextDecoration.none,
                               textBaseline: TextBaseline.alphabetic,
-                              fontSize: 20,
+                              fontSize: 15,
                               color: Colors.black54,
                               fontWeight: FontWeight.normal),
                         ),
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          RaisedButton(
-                            onPressed: _toggleGenderMale,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(60.0)),
-                            padding: EdgeInsets.all(0.0),
-                            child: Ink(
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: _isMale
-                                        ? [Color(0xffF8BE99), Color(0xffF1A19C)]
-                                        : [Colors.white, Colors.white],
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                  ),
-                                  borderRadius: BorderRadius.circular(30.0)),
-                              child: Container(
-                                constraints: BoxConstraints(
-                                    maxWidth: 150.0, minHeight: 40.0),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "Male",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color:
-                                        _isMale ? Colors.white : Colors.black,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          RaisedButton(
-                            onPressed: _toggleGenderFemale,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(80.0)),
-                            padding: EdgeInsets.all(0.0),
-                            child: Ink(
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: _isFemale
-                                        ? [Color(0xffF8BE99), Color(0xffF1A19C)]
-                                        : [Colors.white, Colors.white],
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                  ),
-                                  borderRadius: BorderRadius.circular(30.0)),
-                              child: Container(
-                                constraints: BoxConstraints(
-                                    maxWidth: 150.0, minHeight: 40.0),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "Female",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color:
-                                        _isFemale ? Colors.white : Colors.black,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
+                          OptionsButtons(
+                              btnText: "Male",
+                              isHighlighted: this._isMale,
+                              onPress: _toggleGenderMale),
+                          OptionsButtons(
+                              btnText: "Female",
+                              isHighlighted: this._isFemale,
+                              onPress: _toggleGenderFemale),
                         ],
                       ),
                       SizedBox(height: 15.0),
@@ -163,7 +138,7 @@ class _MoreInfoState extends State<MoreInfo> {
                           style: TextStyle(
                               decoration: TextDecoration.none,
                               textBaseline: TextBaseline.alphabetic,
-                              fontSize: 20,
+                              fontSize: 15,
                               color: Colors.black54,
                               fontWeight: FontWeight.normal),
                         ),
@@ -171,92 +146,18 @@ class _MoreInfoState extends State<MoreInfo> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
-                          RaisedButton(
-                            //onPressed: this.onPress,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(60.0)),
-                            padding: EdgeInsets.all(0.0),
-                            child: Ink(
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Color(0xffF8BE99),
-                                      Color(0xffF1A19C)
-                                    ],
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                  ),
-                                  borderRadius: BorderRadius.circular(30.0)),
-                              child: Container(
-                                constraints: BoxConstraints(
-                                    maxWidth: 100.0, minHeight: 40.0),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "Ectomorph",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          RaisedButton(
-                            //onPressed: this.onPress,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(80.0)),
-                            padding: EdgeInsets.all(0.0),
-                            child: Ink(
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Color(0xffF8BE99),
-                                      Color(0xffF1A19C)
-                                    ],
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                  ),
-                                  borderRadius: BorderRadius.circular(30.0)),
-                              child: Container(
-                                constraints: BoxConstraints(
-                                    maxWidth: 100.0, minHeight: 40.0),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "Endomorph",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ),
-                            ),
-                          ),
-                          RaisedButton(
-                            //onPressed: this.onPress,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(80.0)),
-                            padding: EdgeInsets.all(0.0),
-                            child: Ink(
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Color(0xffF8BE99),
-                                      Color(0xffF1A19C)
-                                    ],
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                  ),
-                                  borderRadius: BorderRadius.circular(30.0)),
-                              child: Container(
-                                constraints: BoxConstraints(
-                                    maxWidth: 100.0, minHeight: 40.0),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "Mesomorph",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ),
-                            ),
-                          ),
+                          OptionsButtons(
+                              btnText: "Ectomorph",
+                              isHighlighted: this._isEcto,
+                              onPress: _toggleEcto),
+                          OptionsButtons(
+                              btnText: "Endomorph",
+                              isHighlighted: this._isEndo,
+                              onPress: _toggleEndo),
+                          OptionsButtons(
+                              btnText: "Mesomorph",
+                              isHighlighted: this._isMeso,
+                              onPress: _toggleMeso),
                         ],
                       ),
                       const SizedBox(height: 20.0),
@@ -267,5 +168,45 @@ class _MoreInfoState extends State<MoreInfo> {
                     ],
                   ),
                 ))));
+  }
+}
+
+class OptionsButtons extends StatelessWidget {
+  final String btnText;
+  final bool isHighlighted;
+  final Function onPress;
+
+  OptionsButtons({this.btnText, this.isHighlighted, this.onPress});
+
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      onPressed: this.onPress,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+      padding: EdgeInsets.all(0.0),
+      child: Ink(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: this.isHighlighted
+                  ? [Color(0xffF8BE99), Color(0xffF1A19C)]
+                  : [Colors.white, Colors.white],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(30.0)),
+        child: Container(
+          constraints: BoxConstraints(maxWidth: 100.0, minHeight: 40.0),
+          alignment: Alignment.center,
+          child: Text(
+            this.btnText,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 13,
+              color: this.isHighlighted ? Colors.white : Colors.black,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
