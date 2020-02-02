@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:wardrobe/screens/myhome.dart';
+import 'package:wardrobe/screens/placeholder.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -18,16 +20,38 @@ class _HomeState extends State<Home> {
 
   final List<Widget> _children = [
     MyHome(Colors.white),
-    MyHome(Colors.deepOrange),
-    MyHome(Colors.blue),
-    MyHome(Colors.red),
-    MyHome(Colors.green),
-    MyHome(Colors.lightBlue)
+    PlaceholderScreen(Colors.deepOrange),
+    PlaceholderScreen(Colors.blue),
+    PlaceholderScreen(Colors.red),
+    PlaceholderScreen(Colors.green),
+    PlaceholderScreen(Colors.lightBlue)
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: GradientAppBar(
+        backgroundColorStart: Color(0xffF8BE99),
+        backgroundColorEnd: Color(0xffF1A19C),
+        //title: const Text('AppBar Demo'),
+        // TODO : ADD SEARCH BAR HERE IN THE ACTIONS
+        // actions: <Widget>[
+        //   IconButton(
+        //     icon: const Icon(Icons.add_alert),
+        //     tooltip: 'Show Snackbar',
+        //     onPressed: () {
+        //       // scaffoldKey.currentState.showSnackBar(snackBar);
+        //     },
+        //   ),
+        //   IconButton(
+        //     icon: const Icon(Icons.navigate_next),
+        //     tooltip: 'Next page',
+        //     onPressed: () {
+        //       //  openPage(context);
+        //     },
+        //   ),
+        // ],
+      ),
       body: _children[_currentIndex], // new
       bottomNavigationBar: BottomNavigationBar(
         unselectedFontSize: 10,
