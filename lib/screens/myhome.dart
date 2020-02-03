@@ -50,10 +50,10 @@ class MyHome extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             CustomCards(
-              imagePath: 'assets/shirt.png',
+              imagePath: 'assets/blueshirt.png',
             ),
             CustomCards(
-              imagePath: 'assets/shirt.png',
+              imagePath: 'assets/shoes.png',
             )
           ],
         )
@@ -87,11 +87,11 @@ class CustomCards extends StatelessWidget {
               print('Card tapped.');
             },
             child: Container(
-              width: 150,
-              height: 140,
+              width: 160,
+              height: 160,
               child: Image.asset(
                 this.imagePath,
-                height: 60.0,
+                height: 50.0,
               ),
             ),
           )),
