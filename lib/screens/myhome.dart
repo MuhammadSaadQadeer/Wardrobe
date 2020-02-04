@@ -84,15 +84,48 @@ class CustomCards extends StatelessWidget {
           child: InkWell(
             splashColor: Colors.blue.withAlpha(30),
             onTap: () {
-              print('Card tapped.');
+              //  print('Card tapped.');
             },
-            child: Container(
-              width: 160,
-              height: 160,
-              child: Image.asset(
-                this.imagePath,
-                height: 50.0,
-              ),
+            child: new Stack(
+              //alignment:new Alignment(x, y)
+              children: <Widget>[
+                Container(
+                  width: 160,
+                  height: 160,
+                  child: Image.asset(
+                    this.imagePath,
+                    height: 50.0,
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    width: 150,
+                    height: 150,
+                    child: Align(
+                      alignment: Alignment.bottomRight,
+                      child: Icon(
+                        Icons.refresh,
+                        size: 28,
+                        color: Colors.blue.shade400,
+                      ),
+                    ),
+                  ),
+                )
+                // new Positioned(
+                //   child: Container(
+                //     width: 160,
+                //     height: 160,
+                //     child: Image.asset(
+                //       this.imagePath,
+                //       height: 50.0,
+                //     ),
+                //   ),
+                // ),
+                // new Positioned(
+                //   child: new Align(
+                //       alignment: Alignment.bottomRight, child: Text("SOme")),
+                // )
+              ],
             ),
           )),
     );
