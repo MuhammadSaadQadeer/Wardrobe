@@ -111,20 +111,6 @@ class CustomCards extends StatelessWidget {
                     ),
                   ),
                 )
-                // new Positioned(
-                //   child: Container(
-                //     width: 160,
-                //     height: 160,
-                //     child: Image.asset(
-                //       this.imagePath,
-                //       height: 50.0,
-                //     ),
-                //   ),
-                // ),
-                // new Positioned(
-                //   child: new Align(
-                //       alignment: Alignment.bottomRight, child: Text("SOme")),
-                // )
               ],
             ),
           )),
