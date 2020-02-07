@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class MyHome extends StatelessWidget {
   final Color color;
-  final List<String> entries = <String>['A', 'B', 'C'];
-  final List<int> colorCodes = <int>[600, 500, 100];
+  final List<String> entries = <String>['A'];
+  final List<int> colorCodes = <int>[600];
 
   MyHome(this.color);
 
@@ -59,19 +59,30 @@ class MyHome extends StatelessWidget {
             )
           ],
         ),
-        ListView.separated(
-          padding: const EdgeInsets.all(8),
-          itemCount: this.entries.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              height: 50,
-              color: Colors.amber[colorCodes[index]],
-              child: Center(child: Text('Entry ${entries[index]}')),
-            );
-          },
-          separatorBuilder: (BuildContext context, int index) =>
-              const Divider(),
-        )
+        Container(
+            height: 1000,
+            // alignment: MainAxisAlignment.center,
+            child: ListView.builder(
+              itemCount: entries.length,
+              itemBuilder: (context, pos) {
+                return Padding(
+                    padding: EdgeInsets.only(bottom: 16.0),
+                    child: Card(
+                      color: Colors.white,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 24.0, horizontal: 16.0),
+                        child: Text(
+                          entries[pos],
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            height: 1.6,
+                          ),
+                        ),
+                      ),
+                    ));
+              },
+            )),
       ],
     ));
   }
