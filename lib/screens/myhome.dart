@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wardrobe/components/customtext.dart';
 
 class MyHome extends StatelessWidget {
   final Color color;
@@ -59,27 +60,61 @@ class MyHome extends StatelessWidget {
             )
           ],
         ),
+        Text(
+          "The latest in men’s fashion",
+          style: TextStyle(
+              decoration: TextDecoration.none,
+              textBaseline: TextBaseline.alphabetic,
+              fontWeight: FontWeight.bold,
+              fontSize: 20),
+        ),
         Container(
-            height: 1000,
+            height: 140,
             // alignment: MainAxisAlignment.center,
             child: ListView.builder(
               itemCount: entries.length,
-              itemBuilder: (context, pos) {
+              itemBuilder: (BuildContext context, int pos) {
                 return Padding(
-                    padding: EdgeInsets.only(bottom: 16.0),
+                    padding: EdgeInsets.only(bottom: 1.0),
                     child: Card(
                       color: Colors.white,
                       child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 24.0, horizontal: 16.0),
-                        child: Text(
-                          entries[pos],
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            height: 1.6,
-                          ),
-                        ),
-                      ),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 10.0, horizontal: 1.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Column(
+                                children: <Widget>[
+                                  Center(
+                                      child: Image.asset('assets/Image1.png')),
+                                ],
+                              ),
+                              Column(
+                                children: <Widget>[
+                                  Text(
+                                    "The latest in men’s fashion",
+                                    style: TextStyle(
+                                        decoration: TextDecoration.none,
+                                        textBaseline: TextBaseline.alphabetic,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                  ),
+                                  Text(
+                                    "Some of the es  to man right here…",
+                                    softWrap: true,
+                                    style: TextStyle(
+                                        decoration: TextDecoration.none,
+                                        textBaseline: TextBaseline.alphabetic,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color(0xFFA8A8A8),
+                                        fontSize: 14),
+                                  ),
+                                ],
+                              )
+                            ],
+                          )),
                     ));
               },
             )),
