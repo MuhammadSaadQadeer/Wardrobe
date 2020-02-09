@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wardrobe/components/customtext.dart';
 
 class MyHome extends StatelessWidget {
   final Color color;
