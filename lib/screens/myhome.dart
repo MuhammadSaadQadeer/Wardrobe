@@ -69,7 +69,6 @@ class MyHome extends StatelessWidget {
         ),
         Container(
             height: 140,
-            // alignment: MainAxisAlignment.center,
             child: ListView.builder(
               itemCount: entries.length,
               itemBuilder: (BuildContext context, int pos) {
@@ -87,7 +86,10 @@ class MyHome extends StatelessWidget {
                               Column(
                                 children: <Widget>[
                                   Center(
-                                      child: Image.asset('assets/Image1.png')),
+                                      child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset('assets/user.png'),
+                                  )),
                                 ],
                               ),
                               Column(
@@ -101,7 +103,7 @@ class MyHome extends StatelessWidget {
                                         fontSize: 15),
                                   ),
                                   Text(
-                                    "Some of the es  to man right here…",
+                                    "Some of the es  to man right",
                                     softWrap: true,
                                     style: TextStyle(
                                         decoration: TextDecoration.none,
