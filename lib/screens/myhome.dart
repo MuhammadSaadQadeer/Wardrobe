@@ -59,27 +59,63 @@ class MyHome extends StatelessWidget {
             )
           ],
         ),
+        Text(
+          "The latest in men’s fashion",
+          style: TextStyle(
+              decoration: TextDecoration.none,
+              textBaseline: TextBaseline.alphabetic,
+              fontWeight: FontWeight.bold,
+              fontSize: 20),
+        ),
         Container(
-            height: 1000,
-            // alignment: MainAxisAlignment.center,
+            height: 140,
             child: ListView.builder(
               itemCount: entries.length,
-              itemBuilder: (context, pos) {
+              itemBuilder: (BuildContext context, int pos) {
                 return Padding(
-                    padding: EdgeInsets.only(bottom: 16.0),
+                    padding: EdgeInsets.only(bottom: 1.0),
                     child: Card(
                       color: Colors.white,
                       child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 24.0, horizontal: 16.0),
-                        child: Text(
-                          entries[pos],
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            height: 1.6,
-                          ),
-                        ),
-                      ),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 10.0, horizontal: 1.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Column(
+                                children: <Widget>[
+                                  Center(
+                                      child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset('assets/user.png'),
+                                  )),
+                                ],
+                              ),
+                              Column(
+                                children: <Widget>[
+                                  Text(
+                                    "The latest in men’s fashion",
+                                    style: TextStyle(
+                                        decoration: TextDecoration.none,
+                                        textBaseline: TextBaseline.alphabetic,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                  ),
+                                  Text(
+                                    "Some of the es  to man right",
+                                    softWrap: true,
+                                    style: TextStyle(
+                                        decoration: TextDecoration.none,
+                                        textBaseline: TextBaseline.alphabetic,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color(0xFFA8A8A8),
+                                        fontSize: 14),
+                                  ),
+                                ],
+                              )
+                            ],
+                          )),
                     ));
               },
             )),
